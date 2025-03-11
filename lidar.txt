@@ -1,6 +1,0 @@
-Lidar modèle: A2M6
-
-Trames:
-- Requêtes :
-  - Forme: [Start flag][Command] [Payload Size][Payload Data][Checksum]
-           \______ Requis _____/ \____________ Optionnel _____________/
