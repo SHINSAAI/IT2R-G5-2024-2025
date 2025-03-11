@@ -3,7 +3,7 @@
  * Auto generated Run-Time-Environment Component Configuration File
  *      *** Do not modify ! ***
  *
- * Project: 'LIDAR_V2' 
+ * Project: 'lidar' 
  * Target:  'Target 1' 
  */
 

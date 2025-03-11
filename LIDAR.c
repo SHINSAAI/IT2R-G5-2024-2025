@@ -7,6 +7,7 @@
 // __________ Dénifintion des octets utilisés __________ \\
 
 #define LIDAR_START_HEADER 					0xA5
+#define LIDAR_RESPONSE_HEADER				0x5A
 #define LIDAR_REQUEST_RESET 				0x40
 #define LIDAR_REQUEST_STOP 					0x25
 #define LIDAR_REQUEST_SCAN					0x20
@@ -26,8 +27,7 @@ void LIDAR_Stop(void);
 void LIDAR_Get_Info(void);		// Récupère les infos du lidar **Pour on ne lit pas les données renvoyées**
 void LIDAR_Scan(void);
 void LIDAR_Force_Scan(void);
-
-
+void LIDAR_Attente_Header(void);
 
 
 
@@ -53,7 +53,7 @@ int main(void) {
 		// Attente du header
 		
 		while(Driver_USART1.GetStatus().rx_busy);			// On attend que la réception soit libre
-		while(header[0] != 0xA5) {										// tant qu'on a pas 0xA5 on attend (premier bit du header)
+		while(header[0] != LIDAR_START_HEADER) {										// tant qu'on a pas 0xA5 on attend (premier bit du header)
 			while(Driver_USART1.GetStatus().rx_busy);
 			Driver_USART1.Receive(header, 1);
 		}
